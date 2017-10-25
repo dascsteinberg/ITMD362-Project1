@@ -280,3 +280,17 @@ form p label {
   font-size: 1em;
   border: 1px solid #F0FFFF;
 }
+
+label {
+ padding: 5px 5px;
+ disaplay: inline-block;
+ 
+}
+
+input, select {
+    padding: 5px 5px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #F8F8FF;
+    box-sizing: border-box;
+}

@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>Roll Call</title>
   <link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script type="text/javascript" src="action.js"></script>
+  <link rel="stylesheet" type="text/css" href="CSS/style.css">
+  <script type="text/javascript" src="JS/script.js"></script>
 </head>
 
 <body>
@@ -25,9 +25,9 @@
       local bar. We will help plan events and allow you to set up your own meet-ups. There will even be an interactive
       map showing local events and establishments that are veteran friendly. Sign up today to join a caring support
       community that's for veterans, by veterans.</p>
-    <form ID="member">
-      <fieldset>
-        <legend class="formLegend">Membership Info</legend>
+    <form id="member" method="get" action="#null" name="member_form" onsubmit="return clickSubmit()" autocomplete="on">
+      <fieldset id="memberInfo">
+        <h4 class="formLegend">Membership Info</h4>
         <p>
           <label>Username <input type="text" name="username"></label>
         </p>
@@ -37,7 +37,9 @@
         <p>
           <label>Confirm Password <input type="password" name="passwd_conf"></label>
         </p>
-        <h1 class="formLegend">Personal Info</h1>
+      </fieldset>
+      <fieldset id="personalInfo">
+        <h4 class="formLegend">Personal Info</h4>
         <p>
           <label>First Name <input type="text" name="first_name" placeholder="Carl"></label>
         </p>
@@ -53,7 +55,7 @@
         <p>
           <label>City <input type="text" name="city" placeholder="Chicago"></label>
         </p>
-        <select>
+        <select name="state" required="required">
           <option value="AL">AL</option>
           <option value="AK">AK</option>
           <option value="AZ">AZ</option>
@@ -105,14 +107,16 @@
           <option value="WV">WV</option>
           <option value="WI">WI</option>
           <option value="WY">WY</option>
-          <option value="" disabled="disabled">--</option>
+          <option value="" disabled="disabled" selected="selected">--</option>
           <option value="PR">PR</option>
           <option value="DC">DC</option>
         </select>
         <p>
           <label>Zip code <input type="text" name="zip"></label>
         </p>
-        <h1 class="formLegend">Military Info</h1>
+      </fieldset>
+      <fieldset id="militaryInfo">
+        <h4 class="formLegend">Military Info</h4>
         <div>
           <p>Please Select your Branch</p>
           <label>Army <input type="radio" id="Army" name="branch" value="Army"></label>
@@ -121,7 +125,9 @@
           <label>Marines <input type="radio" id="Marines" name="branch" value="Marines"></label>
           <label>Coast Guard <input type="radio" id="CoastGuard" name="branch" value="Coast Guard"></label>
         </div>
-        <button type="submit">Sign up</button>
+        <div id="submit_button">
+          <input type="submit" value="Join" onclick="clickSubmit(); return false">
+        </div>      
       </fieldset>
     </form>
 
